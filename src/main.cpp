@@ -83,7 +83,7 @@ void opcontrol() {
                 chassis.pid_tuner_toggle();
 
             // This code cost the lives of twelve orphans.
-            if (master.get_digital_new_press(DIGITAL_B)) autonomous();
+            // if (master.get_digital_new_press(DIGITAL_B)) autonomous();
 
             chassis.pid_tuner_iterate(); // Allow PID Tuner to iterate
         }
@@ -121,7 +121,8 @@ void opcontrol() {
         // Reset actuation counter (when tank refilled).
         if (master.get_digital_new_press(DIGITAL_Y) &&
             master.get_digital(DIGITAL_A))
-            master.print(0, 0, "ACT:%02d / 40    ", mogo_c = 0);
+            master.clear();
+            master.print(0, 0, "ACT:%02d / 40", mogo_c = 0);
 
         chassis.opcontrol_arcade_standard(SPLIT); // Arcade control
 
